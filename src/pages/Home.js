@@ -11,7 +11,7 @@ import Footer from "../components/Footer";
 
 const Home = () => {
 
-
+    const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <Container>
@@ -27,7 +27,7 @@ const Home = () => {
           <SearchBar>
             <Location>
               Location
-              <Input placeholder="City, Area Etc" />
+              <Input placeholder="City, Area Etc" onChange={ (e)=> setSearchTerm(e.target.value)}/>
             </Location>
             <PropertyType>
               Property Type
@@ -47,9 +47,9 @@ const Home = () => {
 
     {/* Section2 */}
 
-    <TopAreas heading="Top areas by city" />
-    <TopAreas heading="Investment Projects to put your money in motion" />
-    <TopAreas heading="Recent Properties for Rent" />
+    <TopAreas heading="Top areas by city" searchTerm={searchTerm}/>
+    <TopAreas heading="Investment Projects to put your money in motion" searchTerm={searchTerm}/>
+    <TopAreas heading="Recent Properties for Rent" searchTerm={searchTerm}/>
 
     <CTA>
         <CTAHeading>We have a buyer for every property</CTAHeading>

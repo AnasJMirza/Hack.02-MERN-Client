@@ -4,11 +4,11 @@ import HomeIcon from '@mui/icons-material/Home';
 import Card from './Card';
 import axios from '../axios.js'
 
-import img1 from '../assets/images/main5.jpg'
-import img2 from '../assets/images/main6.jpg'
-import img3 from '../assets/images/main7.jpg'
+
 
 const TopAreas = (props) => {
+
+    
 
 
     const [post, setPost] = React.useState([]);
@@ -23,8 +23,9 @@ const TopAreas = (props) => {
                 console.log(error);
             }
         }
-        getPosts()
+        getPosts();
     },[])
+
 
 
     return (
@@ -51,15 +52,17 @@ const TopAreas = (props) => {
 
             <CardWrapper>
             {
-                post.map((post)=>{
+                post.filter((post)=>{
+                    if(props.searchTerm == ""){
+                        return post;
+                    }else if (post.city?.toLowerCase()?.includes(props.searchTerm?.toLowerCase())){
+                        return post;
+                    }
+                }).map((post)=>{
                     return <Card post={post} />
                 })
             }
             </CardWrapper>
-
-
-            <br/>
-            <br/>
             <br/>
             <br/>
             <br/>

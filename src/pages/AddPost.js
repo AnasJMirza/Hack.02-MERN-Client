@@ -3,12 +3,14 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import main9 from "../assets/images/main9.jpg";
 import axios from '../axios.js'
+import { Link } from "react-router-dom";
 
 const AddPost = () => {
 
     const [city, setCity] = useState("");
     const [street, setStreet] = useState("");
     const [price, setPrice] = useState(0);
+    const [mobile, setMobile] = useState(null);
     const [imgUrl, setImgUrl] = useState("");
 
     const handleSubmit = async () => {
@@ -18,6 +20,7 @@ const AddPost = () => {
                 city,
                 street,
                 price,
+                mobile,
                 imgUrl
             })
         } catch (error) {
@@ -33,11 +36,14 @@ const AddPost = () => {
         <Line /> 
         <Inputs>
           <Input type={"text"} placeholder="City"  onChange={e=>setCity(e.target.value)} /> <br/>
+          <Input type={"Number"} placeholder="Mobile"  onChange={e=>setMobile(e.target.value)} /> <br/>
           <Input type={"text"} placeholder="Street" onChange={e=>setStreet(e.target.value)} /><br/>
           <Input type={"number"} placeholder="Price" onChange={e=>setPrice(e.target.value)} /> <br/>
           <Input type={"text"} placeholder="imgUrl" onChange={e=>setImgUrl(e.target.value)} />
         </Inputs>
+        <Link to="/">
         <Button onClick={handleSubmit}>Submit</Button>
+        </Link>
       </Form>
     </Container>
   );
@@ -60,7 +66,7 @@ const Container = styled.div`
 `;
 const Form = styled.div`
   width: 30%;
-  height: 55vh;
+  height: 70vh;
   padding: 10px;
   background-color: white;
   border-radius: 5px;
