@@ -1,13 +1,32 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import HomeIcon from '@mui/icons-material/Home';
 import Card from './Card';
+import axios from '../axios.js'
 
 import img1 from '../assets/images/main5.jpg'
 import img2 from '../assets/images/main6.jpg'
 import img3 from '../assets/images/main7.jpg'
 
 const TopAreas = (props) => {
+
+
+    const [post, setPost] = React.useState([]);
+
+    useEffect(()=>{
+        const getPosts = async ()=>{
+            try {
+                const res = await axios.get('/posts/random');
+                console.log(res.data);
+                setPost(res.data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        getPosts()
+    },[])
+
+
     return (
         <Container>
             <Heading>{props.heading}</Heading>
@@ -31,9 +50,11 @@ const TopAreas = (props) => {
             </Info>
 
             <CardWrapper>
-            <Card img={img1}/>
-            <Card img={img2}/>
-            <Card img={img3}/>
+            {
+                post.map((post)=>{
+                    return <Card post={post} />
+                })
+            }
             </CardWrapper>
 
 

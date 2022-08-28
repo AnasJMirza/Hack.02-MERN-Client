@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import cardImg from '../assets/images/cardImg.jpg'
+import axios from '../axios.js'
 
-const Card = (props) => {
+const Card = ({post}) => {
+
+
+    
+
     return (
         <Container>
-            <Img  src={props.img} />
+            <Img  src={post.imgUrl} />
                 
             <Info>
                 <Address>
-                    <City>Islamabad</City>
-                    <Street>Bani Gala</Street>
+                    <City>{post.city}</City>
+                    <Street>{post.street}</Street>
                 </Address>
-                <Price>PKR 85 lac - 1.38 crore</Price>
+                <Price>PKR {post.price}</Price>
             </Info>
         </Container>
     );

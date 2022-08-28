@@ -14,10 +14,12 @@ const Navbar = () => {
         <VillaIcon fontSize="large" /> RealEstates
       </Item>
       <Buttons>
+      <Link to="add" style={{color: 'inherit', textDecoration: 'none'}}>
         <Button>
           <AddBusinessIcon />
           Add Property
         </Button>
+        </Link>
         <Link to="login" style={{color: 'inherit'}}>
         <SignIn>
           <PersonIcon />

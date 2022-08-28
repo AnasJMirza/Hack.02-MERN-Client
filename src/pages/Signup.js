@@ -1,22 +1,22 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import main9 from "../assets/images/main9.jpg";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-const SignIn = () => {
-  return (
-    <Container>
+const Signup = () => {
+    return (
+        <Container>
       <Form>
-        <Heading>SignIn</Heading>
+        <Heading>Sign up</Heading>
         <Line />
-        <Welcome>Welcome to RealEstate.com</Welcome>
+        <Welcome>Create your account</Welcome>
+        <Input placeholder="Name "/> <br />
         <Input placeholder="Email "/> <br />
         <Input placeholder="Password"/>
         <Info>
-        <Keep> <input type={"checkbox"}/> Keep Me signed In</Keep>
-        <Forgot>Forgot Password?</Forgot>
+        
         </Info>
         <Button>Sign In</Button>
         <Or>
@@ -27,17 +27,18 @@ const SignIn = () => {
             </Logos>
         </Or>
         <ExtraInfo>
-            <Dont>Don't have an account?</Dont>
-            <Link to="/signup" style={{color: "inherit"}}>
-            <Create>Create an account</Create>
+            <Dont>Already have an account?</Dont>
+            <Link to="signin" style={{color: "inherit"}}>
+                <Create>Login</Create>
             </Link>
         </ExtraInfo>
       </Form>
     </Container>
-  );
+    );
 };
 
-export default SignIn;
+export default Signup;
+
 
 const Container = styled.div`
   display: flex;
@@ -56,7 +57,7 @@ const Form = styled.div`
   /* border: 1px solid #ff6767; */
   border-radius: 4px;
   width: 30vw;
-  height: 65vh;
+  height: 70vh;
   padding: 20px;
   background-color: white;
 `;
@@ -91,16 +92,7 @@ const Info = styled.div`
     justify-content: space-between;
     margin: 10px;
 `;
-const Keep = styled.div`
-    font-size: 14px;
-    color: grey;
-`;
-const Forgot = styled.div`
-    font-size: 14px;
-    color: #ff6767;
-    font-weight: bold;
-    cursor: pointer;
-`;
+
 
 const Button = styled.div`
     padding: 7px 15px;

@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import PageviewIcon from '@mui/icons-material/Pageview';
 import TopAreas from "../components/TopAreas";
 import main8 from '../assets/images/main8.jpg'
+import Footer from "../components/Footer";
 
 
 const Home = () => {
@@ -56,7 +57,7 @@ const Home = () => {
         <CTAButton>Try Selling</CTAButton>
     </CTA>
 
-    
+    <Footer />
     </Container>
   );
 };
