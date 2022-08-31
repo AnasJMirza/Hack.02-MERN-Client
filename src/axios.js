@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const instance = axios.create({
-    baseURL: 'https://git.heroku.com/hac2.git',
+    baseURL: 'https://hac2.herokuapp.com/api',
 });
 
 export default instance;
